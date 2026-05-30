@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Virtualenv
+.venv/
+
+# Environment
+.env
+
+# VSCode
+.vscode/
+
+# Mac/Linux
+.DS_Store
+
+# Django
+media/
+staticfiles/
+
+# Pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/

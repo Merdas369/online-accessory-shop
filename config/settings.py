@@ -40,6 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # django apps
+    'apps.accounts.apps.AccountsConfig',
+    'apps.cart.apps.CartConfig',
+    'apps.core.apps.CoreConfig',
+    'apps.dashboard.apps.DashboardConfig',
+    'apps.orders.apps.OrdersConfig',
+    'apps.pages.apps.PagesConfig',
+    'apps.payments.apps.PaymentsConfig',
+    'apps.products.apps.ProductsConfig',
+    'apps.wishlist.apps.WishlistConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,9 @@
-from .base import *
+import environ
 
+from .base import *  # noqa: F403,F401
 
-DEBUG = env.bool('DEBUG', default=True)
+env = environ.Env()
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])   
+DEBUG = env.bool("DEBUG", default=True)
+
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])

@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 100
+exclude = [
+    "migrations",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

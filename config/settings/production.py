@@ -1,7 +1,7 @@
-from .base import *
+from .base import *  # noqa: F403,F401
 
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'yourdomain.com',
+    "yourdomain.com",
 ]

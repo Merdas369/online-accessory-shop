@@ -1,3 +1,25 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("../fonts/Vazirmatn[wght].woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@theme {
+    --color-primary: #b10055;
+    --color-primary-hover: #7f1347;
+
+    --color-secondary: #4d759d;
+    --color-secondary-hover: #004f86;
+
+    --color-accent: #ffeded;
+    --color-neutral: #4a4a4a;
+    --color-background: #fff;
+
+    --radius-shop: 3px;
+    --spacing-section: 20px;
+}
+
 @layer base {
     body {
         font-family: "Vazirmatn", sans-serif;
@@ -7,10 +29,3 @@
 @layer components {}
 
 @layer utilities {}
-
-@font-face {
-    font-family: "Vazirmatn";
-    src: url("../fonts/Vazirmatn[wght].woff2") format("woff2-variations");
-    font-weight: 100 900;
-    font-style: normal;
-}

@@ -26,6 +26,14 @@
     }
 }
 
-@layer components {}
+@layer components {
+    .btn-primary {
+        @apply bg-primary px-section text-accent hover:bg-primary-hover border-[3px] border-transparent rounded-shop text-center align-middle w-auto h-[61px] cursor-pointer;
+    }
+
+    .btn-secondary {
+        @apply bg-secondary px-section text-accent hover:bg-secondary-hover border-[3px] border-transparent rounded-shop text-center align-middle w-auto h-[61px] cursor-pointer;
+    }
+}
 
 @layer utilities {}

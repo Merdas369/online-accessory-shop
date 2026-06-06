@@ -34,6 +34,10 @@
     .btn-secondary {
         @apply bg-secondary px-section text-accent hover:bg-secondary-hover border-[3px] border-transparent rounded-shop text-center align-middle w-auto h-[61px] cursor-pointer;
     }
+
+    .input-field {
+        @apply border-[1px] rounded-shop px-section h-[52px] w-auto text-[#949494] text-[16px] border-neutral placeholder:text-[#949494] focus:border-secondary focus:outline-none;
+    }
 }
 
 @layer utilities {}

@@ -38,6 +38,30 @@
     .input-field {
         @apply border-[1px] rounded-shop px-section h-[52px] w-auto text-[#949494] text-[16px] border-neutral placeholder:text-[#949494] focus:border-secondary focus:outline-none;
     }
+
+    .product-card__badge-container {
+        @apply min-h-[18px] text-right text-neutral;
+    }
+
+    .product-card__inner {
+        @apply flex flex-col h-[100%] text-neutral;
+    }
+
+    .product-card-inner__image-container {
+        @apply w-[100%] relative;
+    }
+
+    .product-card-inner__data-container {
+        @apply mt-[3px] text-neutral;
+    }
+
+    .product-card__title {
+        @apply text-neutral text-[14px] h-section;
+    }
+
+    .product-card__price {
+        @apply text-neutral text-[14px] h-section
+    }
 }
 
 @layer utilities {}

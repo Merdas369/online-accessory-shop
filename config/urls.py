@@ -15,10 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from debug_toolbar.toolbar import debug_toolbar_urls
+import debug_toolbar
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-] + debug_toolbar_urls()
+    path("", include("apps.core.urls")),
+    path("__degug__/", include(debug_toolbar.urls)),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

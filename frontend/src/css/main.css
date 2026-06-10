@@ -74,6 +74,18 @@
     .desktop-nav__submenu {
         @apply list-none m-0 p-5 flex flex-col absolute right-0 top-8 bg-background;
     }
+
+    .value-props {
+        @apply border-t-[1px] border-[#eaeaea] py-2.5 px-0;
+    }
+
+    .value-props__inner {
+        @apply max-w-full px-[20px] py-0 my-0 mx-auto;
+    }
+
+    .value-props__container {
+        @apply my-0 mx-[10px] flex justify-between;
+    }
 }
 
 @layer utilities {}

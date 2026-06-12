@@ -30,3 +30,13 @@ class ProductVariant(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=0)
     stock = models.PositiveIntegerField()
     is_active = models.BooleanField()
+
+
+class ProductImage(TimeStampModel):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="images")
+    alt_text = models.CharField(max_length=255)
+    sort_order = models.PositiveSmallIntegerField()
+
+    class Meta:
+        ordering = ["sort_order"]

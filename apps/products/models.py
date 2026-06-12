@@ -10,6 +10,9 @@ class Category(TimeStampModel):
     slug = models.SlugField(db_index=True)
     is_active = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.name} {self.is_active}"
+
 
 class Product(TimeStampModel):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, db_index=True)
@@ -22,6 +25,9 @@ class Product(TimeStampModel):
     meta_title = models.CharField(max_length=255)
     meta_description = models.TextField()
 
+    def __str__(self):
+        return self.slug
+
 
 class ProductVariant(models.Model):
     product = models.ManyToManyField(Product, db_index=True)
@@ -31,12 +37,18 @@ class ProductVariant(models.Model):
     stock = models.PositiveIntegerField()
     is_active = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.material} {self.sku}"
+
 
 class ProductImage(TimeStampModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="images")
     alt_text = models.CharField(max_length=255)
     sort_order = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.alt_text
 
     class Meta:
         ordering = ["sort_order"]

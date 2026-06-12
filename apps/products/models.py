@@ -7,26 +7,26 @@ from apps.core.models import TimeStampModel
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(db_index=True)
     is_active = models.BooleanField()
 
 
 class Product(TimeStampModel):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, db_index=True)
     title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(db_index=True)
     short_description = models.CharField(max_length=255)
     description = models.TextField()
-    is_active = models.BooleanField()
-    is_featured = models.BooleanField()
+    is_active = models.BooleanField(db_index=True)
+    is_featured = models.BooleanField(db_index=True)
     meta_title = models.CharField(max_length=255)
     meta_description = models.TextField()
 
 
 class ProductVariant(models.Model):
-    product = models.ManyToManyField(Product)
+    product = models.ManyToManyField(Product, db_index=True)
     material = models.CharField(max_length=255)
-    sku = models.CharField(max_length=255, unique=True)
+    sku = models.CharField(max_length=255, unique=True, db_index=True)
     price = models.DecimalField(max_digits=9, decimal_places=0)
     stock = models.PositiveIntegerField()
     is_active = models.BooleanField()

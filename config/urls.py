@@ -24,4 +24,5 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("__degug__/", include(debug_toolbar.urls)),
+    path("", include("apps.products.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

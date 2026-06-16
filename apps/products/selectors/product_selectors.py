@@ -1,9 +1,10 @@
-from products import models
+from apps.products import models
 
 
 def get_active_products():
-    query = models.Product.objects.filter(is_active=True)
-    return list(query)
+    return models.Product.objects.prefetch_related("productimage_set", "productvariant_set").filter(
+        is_active=True
+    )
 
 
 def get_featured_products():

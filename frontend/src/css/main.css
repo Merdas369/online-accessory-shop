@@ -43,8 +43,8 @@
         @apply min-h-[18px] text-right text-neutral;
     }
 
-    .product-card__inner {
-        @apply flex flex-col h-[100%] text-neutral;
+    .product-card {
+        @apply inline-block w-1/6 mr-[20px] mb-[18px] h-full;
     }
 
     .product-card-inner__image-container {

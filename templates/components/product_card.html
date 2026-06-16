@@ -1,35 +1,36 @@
 {% load static %}
-<li class="w-1/3 ">
-    <div class="product-card inline-block mb-[15px]">
-        <div class="product-card__badge-container">
 
-        </div>
-        <div class="product-card__inner">
-            <div class="product-card-inner__image-container">
+<div class="inline-block w-1/6 mr-[20px] mb-[18px] h-full">
+    <div class=" product-card__badge-container">
 
-                <a href="#">
-                    <img class="block object-cover w-full h-auto"
-                        src="{% static 'images/EasyToKeepBracelet_Gold-2_600x.progressive.jpg' %}" alt="test">
-                </a>
+    </div>
+    <div class="flex flex-col">
 
-                <button class=" btn-primary absolute bottom-0 left-0 right-0">
-                    اضافه کردن به علاقمندی ها
-                </button>
 
-            </div>
-            <div class="product-card-inner__data-container">
+        <a href="#">
+            <img class="object-cover" src="{{image.image.url}}" alt="{{ image.alt_text }}">
+
+        </a>
+        <button class=" btn-secondary">
+            اضافه کردن به علاقمندی ها
+        </button>
+
+
+
+        <div class=" product-card__data-container">
+            <div>
                 <a href="#" class="decoration-0 bg-transparent text-neutral">
                     <h2 class="product-card__title">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        {{product.title}}
                     </h2>
                 </a>
-                <div class="product-card__price-container">
-                    <span class="product-card__price">
-                        150 هزار تومان
-                    </span>
-                </div>
-
             </div>
+            <div>
+                <p class="product-card__price font-bold h-section pt-6">
+                    {{variant.price}} هزار تومان
+                </p>
+            </div>
+
         </div>
     </div>
-</li>
+</div>

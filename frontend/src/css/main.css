@@ -68,7 +68,7 @@
     }
 
     .desktop-nav__items {
-        @apply list-none m-0 flex h-[32px] py-1.5 cursor-pointer relative text-nowrap text-primary;
+        @apply list-none m-0 flex h-[32px] py-1.5 cursor-pointer relative text-nowrap text-neutral;
     }
 
     .desktop-nav__submenu {

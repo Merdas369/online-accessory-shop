@@ -20,7 +20,7 @@ class Category(TimeStampModel):
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.name} {self.is_active}"
+        return self.name
 
 
 class Product(TimeStampModel):

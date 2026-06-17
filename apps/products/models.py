@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from apps.core.models import TimeStampModel
 
@@ -7,8 +8,13 @@ from apps.core.models import TimeStampModel
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(db_index=True)
+    slug = models.SlugField(db_index=True, blank=True)
     is_active = models.BooleanField()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name, allow_unicode=True)
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name} {self.is_active}"

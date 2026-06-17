@@ -1,15 +1,12 @@
 # Create your views here.
 
-from django.views.generic import ListView
+from django.http import HttpRequest
+from django.shortcuts import render
 
-from . import models
 from .selectors import product_selectors
 
 
-class ProductListView(ListView):
-    template_name = "products/list.html"
-    model = models.Product
-    context_object_name = "products"
-
-    def get_queryset(self):
-        return product_selectors.get_active_products()
+def product_list(request: HttpRequest):
+    if request.method == "GET":
+        products = product_selectors.get_active_products()
+        return render(request, "products/list.html", {"products": products})

@@ -8,6 +8,9 @@ from apps.core.models import TimeStampModel
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=255)
+    parent = models.ForeignKey(
+        "self", on_delete=models.CASCADE, related_name="children", null=True, blank=True
+    )
     slug = models.SlugField(db_index=True, blank=True)
     is_active = models.BooleanField()
 

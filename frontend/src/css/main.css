@@ -1,7 +1,17 @@
 @font-face {
-    font-family: "Vazirmatn";
-    src: url("../fonts/Vazirmatn[wght].woff2") format("woff2-variations");
-    font-weight: 100 900;
+    font-family: "IRNazanin";
+    src: url("../fonts/IRNazanin.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: "IRDastNevis";
+    src: url(../fonts/IRDastNevis.ttf) format("truetype");
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -22,7 +32,7 @@
 
 @layer base {
     body {
-        font-family: "Vazirmatn", sans-serif;
+        font-family: "IRNazanin", sans-serif;
     }
 }
 
@@ -37,6 +47,10 @@
 
     .input-field {
         @apply border-[1px] rounded-shop px-section h-[52px] w-auto text-[#949494] text-[16px] border-neutral placeholder:text-[#949494] focus:border-secondary focus:outline-none;
+    }
+
+    .search-input {
+        @apply px-section w-auto text-[#949494] text-[16px] border-neutral placeholder:text-[#949494] focus:border-secondary focus:outline-none mr-14 border-b-[1px] border-t-0 border-r-0 border-l-0 rounded-none;
     }
 
     .product-card__badge-container {

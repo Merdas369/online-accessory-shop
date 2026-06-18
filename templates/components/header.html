@@ -1,0 +1,35 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<div class="flex mt-4 mb-12 items-center justify-between">
+    <div>
+        <div class="flex">
+            <div class=" p-0 mb-6"><img class="absolute right-8 top-2" src="{% static 'icons/search-icon.png' %}"
+                    alt="search-icon"></div>
+            <div class="absolute right-1 top-2 ">
+                <form action="POST" class=" w-auto">
+                    {% render_field form.title class="search-input" placeholder="جستوجو" %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="pr-52">
+        <h1 class="font-[IRDastNevis] font-extrabold font-stretch-200% text-4xl text-neutral">
+            فروشگاه آنلاین اکسسوری
+        </h1>
+    </div>
+    <div class="self-start">
+        <div class="flex">
+            <a href="#" class="px-2.5">ورود</a>
+            <a href="#" class="px-2.5">لیست علاقمندی ها</a>
+            <span class="flex">
+                <img class="inline-block absolute left-12 top-3.5 px-2" src="{% static 'icons/shop-icon.png' %}" alt="">
+                <a href="#" class="px-2.5 text-nowrap">سبد خرید</a>
+            </span>
+        </div>
+    </div>
+
+
+</div>

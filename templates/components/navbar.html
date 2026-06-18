@@ -1,73 +1,23 @@
+{% load static %}
 <nav class="block">
     <ul class="desktop-nav__list">
+        {% for category in navbar_category %}
         <li class="desktop-nav__items" x-data="{show : false}" @mouseenter="show = true" @mouseleave="show = false">
             <a href="#">
-                انگشتر
+                {{category}}
             </a>
+
             <ul class="desktop-nav__submenu" x-show="show">
+                {% for subcategory in category.children.all %}
                 <li class="desktop-nav__item">
                     <a href="#">
-                        نگین دار
+                        {{subcategory}}
                     </a>
                 </li>
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        بدون نگین
-                    </a>
-                </li>
+                {% endfor %}
             </ul>
         </li>
-        <li class="desktop-nav__items" x-data="{show : false}" @mouseenter="show = true" @mouseleave="show = false">
-            <a href="#">
-                دست بند
-            </a>
-            <ul class="desktop-nav__submenu" x-show="show">
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        نگین دار
-                    </a>
-                </li>
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        بدون نگین
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="desktop-nav__items" x-data="{show : false}" @mouseenter="show = true" @mouseleave="show = false">
-            <a href="#">
-                گردنبند
-            </a>
-            <ul class="desktop-nav__submenu" x-show="show">
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        نگین دار
-                    </a>
-                </li>
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        بدون نگین
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="desktop-nav__items" x-data="{show : false}" @mouseenter="show = true" @mouseleave="show = false">
-            <a href="#">
-                پابند
-            </a>
-            <ul class="desktop-nav__submenu" x-show="show">
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        نگین دار
-                    </a>
-                </li>
-                <li class="desktop-nav__item">
-                    <a href="#">
-                        بدون نگین
-                    </a>
-                </li>
-            </ul>
-        </li>
+        {% endfor %}
     </ul>
 
 </nav>

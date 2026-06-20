@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+محصولات
+{% endblock %}
+
+{% block content %}
+
+{% include 'components/header.html' with form=form %}
+
+{% include 'components/navbar.html' %}
+
+{% if filter %}
+{% for product in filter.qs %}
+
+{% include 'components/product_card.html' %}
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}

@@ -7,15 +7,17 @@
         <div class="flex">
             <div class=" p-0 mb-6"><img class="absolute right-8 top-2" src="{% static 'icons/search-icon.png' %}"
                     alt="search-icon"></div>
-            <div class="absolute right-1 top-2 ">
-                <form action="POST" class=" w-auto">
-                    {% render_field form.title class="search-input" placeholder="جستوجو" %}
+            <div class="absolute right-1 top-2">
+                <form method="get" class=" w-auto" hx-get="{% url 'products' %}" hx-target="#products"
+                    hx-swap="outerHTML" HX-Trigger="enterkey">
+
+                    {% render_field form.title class='search-input' placeholder='جستوجو' %}
 
                 </form>
             </div>
         </div>
     </div>
-    <div class="pr-52">
+    <div class=" pr-52">
         <h1 class="font-[IRDastNevis] font-extrabold font-stretch-200% text-4xl text-neutral">
             فروشگاه آنلاین اکسسوری
         </h1>

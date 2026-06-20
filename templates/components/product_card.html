@@ -8,7 +8,8 @@
 
 
         <a href="#">
-            <img class="object-cover" src="{{image.image.url}}" alt="{{ image.alt_text }}">
+            <img class="object-cover" src="{{product.images.first.image.url}}"
+                alt="{{ product.images.first.alt_text }}">
 
         </a>
         <button class=" btn-secondary">
@@ -23,11 +24,14 @@
                     <h2 class="product-card__title">
                         {{product.title}}
                     </h2>
+                    <p>
+                        {{product.short_description}}
+                    </p>
                 </a>
             </div>
             <div>
                 <p class="product-card__price font-bold h-section pt-6">
-                    {{variant.price}} هزار تومان
+                    {{product.variants.first.price}} هزار تومان
                 </p>
             </div>
 

@@ -24,13 +24,15 @@ class Category(TimeStampModel):
 
 
 class Product(TimeStampModel):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, db_index=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.PROTECT, db_index=True, related_name="products"
+    )
     title = models.CharField(max_length=255)
-    slug = models.SlugField(db_index=True)
+    slug = models.SlugField(db_index=True, unique=True)
     short_description = models.CharField(max_length=255)
     description = models.TextField()
-    is_active = models.BooleanField(db_index=True)
-    is_featured = models.BooleanField(db_index=True)
+    is_active = models.BooleanField(db_index=True, default=True)
+    is_featured = models.BooleanField(db_index=True, default=False)
     meta_title = models.CharField(max_length=255)
     meta_description = models.TextField()
 
@@ -39,7 +41,9 @@ class Product(TimeStampModel):
 
 
 class ProductVariant(models.Model):
-    product = models.ManyToManyField(Product, db_index=True)
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, db_index=True, related_name="variants"
+    )
     material = models.CharField(max_length=255)
     sku = models.CharField(max_length=255, unique=True, db_index=True)
     price = models.DecimalField(max_digits=9, decimal_places=0)
@@ -51,13 +55,13 @@ class ProductVariant(models.Model):
 
 
 class ProductImage(TimeStampModel):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="images")
     alt_text = models.CharField(max_length=255)
     sort_order = models.PositiveSmallIntegerField()
 
-    def __str__(self):
-        return self.alt_text
-
     class Meta:
         ordering = ["sort_order"]
+
+    def __str__(self):
+        return self.alt_text

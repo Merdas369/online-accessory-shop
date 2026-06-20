@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # third-party apps
     "widget_tweaks",
     "debug_toolbar",
+    "django_filters",
 ]
 
 MIDDLEWARE = [

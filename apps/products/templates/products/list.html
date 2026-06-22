@@ -6,22 +6,20 @@
 {% endblock %}
 
 {% block content %}
+<div class="flex flex-col justify-items-center">
+    <div class="">
+        {% include 'components/header.html' with form=form %}
+        {% include 'components/navbar.html' %}
+        {% include 'components/ordering.html' %}
+    </div>
+    <div class="grid grid-cols-4 gap-8 mx-[18px]" id="products">
 
-{% include 'components/header.html' with form=form %}
-
-{% include 'components/navbar.html' %}
-
-
-<div class="pb-16" id="products">
-    {% include 'components/ordering.html' %}
-    {% for product in filter.qs %}
-
-    {% include 'components/product_card.html' %}
-    {% endfor %}
-
-
-
+        {% for product in filter.qs %}
+        {% include 'components/product_card.html' %}
+        {% endfor %}
+    </div>
+    <div>
+        {% include 'components/footer.html' %}
+    </div>
 </div>
-{% include 'components/footer.html' %}
-
 {% endblock %}

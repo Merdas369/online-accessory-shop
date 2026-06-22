@@ -8,7 +8,19 @@ class ProductFilter(django_filters.FilterSet):
         field_name="title",
         lookup_expr="icontains",
     )
+    ordering = django_filters.OrderingFilter(
+        fields=(
+            ("title", "title"),
+            ("created_at", "created_at"),
+            ("min_price", "price"),
+        ),
+        field_labels={
+            "title": "به ترتیب الفبا",
+            "created_at": "به ترتیب تاریخ",
+            "min_price": "به ترتیب قیمت",
+        },
+    )
 
     class Meta:
         model = Product
-        fields = ["title"]
+        fields = []

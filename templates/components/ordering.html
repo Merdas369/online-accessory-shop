@@ -1,0 +1,15 @@
+{% load static %}
+{% load widget_tweaks %}
+<div class="my-4 py-3">
+    <form method="get" hx-get="{% url 'products' %}" hx-trigger="change" hx-select="#products" hx-swap="outerHTML"
+        hx-push-url="true" hx-target="#products">
+
+        <span class="mx-4">
+            {{filter.form.ordering.label_tag}}
+        </span>
+        <span class="border p-2">
+            {{filter.form.ordering}}
+        </span>
+
+    </form>
+</div>

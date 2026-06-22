@@ -11,12 +11,17 @@
 
 {% include 'components/navbar.html' %}
 
-{% if filter %}
-{% for product in filter.qs %}
 
-{% include 'components/product_card.html' %}
-{% endfor %}
-{% endif %}
+<div class="pb-16" id="products">
+    {% include 'components/ordering.html' %}
+    {% for product in filter.qs %}
 
+    {% include 'components/product_card.html' %}
+    {% endfor %}
+
+
+
+</div>
+{% include 'components/footer.html' %}
 
 {% endblock %}

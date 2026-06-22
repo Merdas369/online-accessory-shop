@@ -5,17 +5,17 @@
 
     </div>
     <div class="flex flex-col">
-
+        {% with image=product.images.all.0 %}
 
         <a href="#">
-            <img class="object-cover" src="{{product.images.first.image.url}}"
-                alt="{{ product.images.first.alt_text }}">
+            <img class="object-cover" src="{{image.image.url}}" alt="{{image.alt_text }}">
 
         </a>
         <button class=" btn-secondary">
             اضافه کردن به علاقمندی ها
         </button>
 
+        {% endwith %}
 
 
         <div class=" product-card__data-container">
@@ -30,9 +30,14 @@
                 </a>
             </div>
             <div>
-                <p class="product-card__price font-bold h-section pt-6">
-                    {{product.variants.first.price}} هزار تومان
+                {% with variant=product.variants.all.0 %}
+
+                <p class="product-card__price font-bold h-section pt-6 pr-1.5">
+                    {{variant.price}} هزار تومان
+                    {{variant.material}}
                 </p>
+
+                {% endwith %}
             </div>
 
         </div>

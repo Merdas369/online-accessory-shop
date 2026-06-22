@@ -4,7 +4,9 @@
         {% for category in navbar_category %}
         <li class="desktop-nav__items" x-data="{show : false}" @mouseenter="show = true" @mouseleave="show = false">
             <a href="#">
+
                 {{category}}
+
             </a>
 
             <ul class="desktop-nav__submenu" x-show="show">
@@ -15,9 +17,13 @@
                     </a>
                 </li>
                 {% endfor %}
+
+
             </ul>
         </li>
+
         {% endfor %}
+
     </ul>
 
 </nav>

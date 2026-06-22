@@ -1,8 +1,14 @@
+from django.db.models import Min
+
 from apps.products import models
 
 
 def get_active_products():
-    return models.Product.objects.prefetch_related("images", "variants").filter(is_active=True)
+    return (
+        models.Product.objects.filter(is_active=True)
+        .annotate(min_price=Min("variants__price"))
+        .prefetch_related("images", "variants")
+    )
 
 
 def get_featured_products():

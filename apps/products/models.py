@@ -33,8 +33,8 @@ class Product(TimeStampModel):
     description = models.TextField()
     is_active = models.BooleanField(db_index=True, default=True)
     is_featured = models.BooleanField(db_index=True, default=False)
-    meta_title = models.CharField(max_length=255)
-    meta_description = models.TextField()
+    meta_title = models.CharField(max_length=255, blank=True, null=True)
+    meta_description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.slug

@@ -14,9 +14,25 @@
     </div>
     <div class="grid grid-cols-4 gap-8 mx-[18px]" id="products">
 
-        {% for product in filter.qs %}
+        {% for product in page_obj %}
         {% include 'components/product_card.html' %}
         {% endfor %}
+
+
+    </div>
+    <div class="flex flex-row justify-center">
+        {% for page in elided_pages %}
+        {% if page == page_obj.paginator.ELLIPSIS %}
+        <span class="p-2">...</span>
+        {% else %}
+        <a class="p-2 text-2xl text-primary"
+            href="?{% if request.GET.title %}title={{ request.GET.title }}&{% endif %}{% if request.GET.ordering %}ordering={{ request.GET.ordering }}&{% endif %}page={{ page }}">
+            {{ page }}
+        </a>
+        {% endif %}
+        {% endfor %}
+
+
     </div>
     <div>
         {% include 'components/footer.html' %}

@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ product.meta_title|default:product.title }}
+{% endblock %}
+
+{% block meta_description %}
+{{ product.meta_description }}
+{% endblock %}
+
+{% block content %}
+
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+
+<div class="grid grid-cols-[500px_1fr]">
+
+    <div class="sticky top-4 self-start ">
+        <div class=" text-2xl font-bold text-neutral p-3">
+            {{ product.title}}
+        </div>
+        <div class="text-2xl font-bold text-neutral p-3 border-b-[1px] border-neutral">
+            {{product.variants.first.price}}<span class="px-2">هزار تومان</span>
+        </div>
+
+
+        <div class="py-3">
+            {% include 'components/button.html' with btn='btn-primary w-96 mx-14 font-bold' text='افزودن به سبد خرید' %}
+        </div>
+        <div class="bg-[#ffeded] text-neutral p-6 mt-4">
+            <div class="text-3xl text-primary py-4">توضیحات</div>
+            {{ product.description }}
+        </div>
+
+    </div>
+    <div class="w-11/12 h-auto grid grid-cols-2 grid-rows-2 gap-4 justify-self-center">
+        {% for image in product.images.all %}
+        <img class="object-cover" src="{{ image.image.url }}" alt="{{ image.alt_text }}">
+        {% endfor %}
+    </div>
+</div>
+<div>
+    {% include 'components/footer.html' %}
+</div>
+{% endblock %}

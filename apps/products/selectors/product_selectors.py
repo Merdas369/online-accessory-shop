@@ -12,15 +12,12 @@ def get_active_products():
 
 
 def get_featured_products():
-    query = models.Product.objects.filter(is_featured=True)
-    return list(query)
+    return models.Product.objects.filter(is_featured=True)
 
 
 def get_product_by_slug(slug):
-    query = models.Product.objects.filter(slug=slug)
-    return list(query)
+    return models.Product.objects.filter(slug=slug).prefetch_related("images", "variants")
 
 
 def get_products_by_category(category):
-    query = models.Product.objects.select_related("category").filter(category=category)
-    return list(query)
+    return models.Product.objects.select_related("category").filter(category=category)

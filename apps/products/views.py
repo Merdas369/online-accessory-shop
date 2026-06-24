@@ -28,3 +28,8 @@ def product_list(request: HttpRequest):
             "paginator": paginator,
         },
     )
+
+
+def product_detail(request: HttpRequest, slug):
+    product = product_selectors.get_product_by_slug(slug).first()
+    return render(request, "products/product_detail.html", {"product": product})

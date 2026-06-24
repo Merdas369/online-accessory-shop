@@ -7,7 +7,7 @@
     <div class="flex flex-col">
         {% with image=product.images.all.0 %}
 
-        <a href="#">
+        <a href="{% url 'product_detail' product.slug  %}">
             <img class="object-cover" src="{{image.image.url}}" alt="{{image.alt_text }}">
 
         </a>

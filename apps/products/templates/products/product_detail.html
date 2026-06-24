@@ -35,9 +35,9 @@
         </div>
 
     </div>
-    <div class="w-11/12 h-auto grid grid-cols-2 grid-rows-2 gap-4 justify-self-center">
+    <div class="w-11/12 h-auto grid grid-cols-2 grid-rows-2 gap-4 justify-self-center mt-2">
         {% for image in product.images.all %}
-        <img class="object-cover" src="{{ image.image.url }}" alt="{{ image.alt_text }}">
+        <img class="object-cover" src="{{ image.image.url }}" alt="{{ image.alt_text }}" loading="lazy">
         {% endfor %}
     </div>
 </div>

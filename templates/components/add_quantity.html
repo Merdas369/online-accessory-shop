@@ -1,0 +1,10 @@
+<div x-data="{quantity: 1}">
+
+    <span class="bg-primary px-6 py-3 rounded-sm "><button type="button" @click="quantity++"
+            class="cursor-pointer text-white">+</button></span><span><input
+            class="w-14 h-10 border border-neutral rounded-sm text-center py-0.5" type="text"
+            x-bind:value="quantity"></span><span class="bg-primary px-6 py-3 rounded-sm "><button type="button"
+            @click="quantity--" class="cursor-pointer text-white">-</button></span>
+    <input type="hidden" name="q" x-bind:value="quantity">
+
+</div>

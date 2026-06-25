@@ -23,12 +23,20 @@
         </div>
         <div class="text-2xl font-bold text-neutral p-3 border-b-[1px] border-neutral">
             {{product.variants.first.price}}<span class="px-2">هزار تومان</span>
-        </div>
 
-
-        <div class="py-3">
-            {% include 'components/button.html' with btn='btn-primary w-96 mx-14 font-bold' text='افزودن به سبد خرید' %}
         </div>
+        <form method="post" hx-post="{% url 'cart_detail' %}">
+            <input type="hidden" name="variant_id" value="{{product.variants.first.id}}">
+            <input type="hidden" name="variant" value="{{product.variants.first.variant}}">
+            <input type="hidden" name="price" value="{{product.variants.first.price}}">
+            {% csrf_token %}
+            <div class="inline-block relative right-80 my-8">
+                {% include 'components/add_quantity.html' %}
+            </div>
+            <div class="py-3">
+                {% include 'components/button.html' with btn='btn-primary w-96 mx-14' text='افزودن به سبد خرید' %}
+            </div>
+        </form>
         <div class="bg-[#ffeded] text-neutral p-6 mt-4">
             <div class="text-3xl text-primary py-4">توضیحات</div>
             {{ product.description }}

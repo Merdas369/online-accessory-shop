@@ -1,0 +1,10 @@
+{% load static %}
+<div>
+    <div class="bg-primary w-64 relative right-32 mt-16 py-6 rounded-sm" x-data="{show: true}" x-show="show">
+        <p class="text-white text-center">
+            محصول با موفقیت به سبد خرید شما اضافه شد
+        </p>
+        <button class="bg-[#ffeded] px-4 py-1 relative right-25 rounded-sm mt-8 cursor-pointer"
+            @click="show = false">Ok</button>
+    </div>
+</div>

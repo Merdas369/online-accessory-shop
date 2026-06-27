@@ -29,7 +29,20 @@
             <span class="flex">
                 <img class="inline-block absolute left-12 top-3.5 px-2" src="{% static 'icons/shop-icon.png' %}" alt="">
                 <a href="#" class="px-2.5 text-nowrap">سبد خرید</a>
+
+
+                <div id="cart-badge">
+                    {% if cart_count %}
+                    <span
+                        class="rounded-full w-6 h-6 text-center text-white text-white align-text-top bg-primary absolute top-8 left-12 p-1">
+                        {{cart_count}}
+                    </span>
+                    {% endif %}
+                </div>
+
+
             </span>
+
         </div>
     </div>
 

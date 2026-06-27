@@ -25,7 +25,7 @@
             {{product.variants.first.price}}<span class="px-2">هزار تومان</span>
 
         </div>
-        <form method="post" hx-post="{% url 'cart' %}">
+        <form method="post" hx-post="{% url 'cart' %}" hx-target="#add-button">
             <input type="hidden" name="variant_id" value="{{product.variants.first.id}}">
             <input type="hidden" name="variant" value="{{product.variants.first.variant}}">
             <input type="hidden" name="price" value="{{product.variants.first.price}}">
@@ -33,7 +33,7 @@
             <div class="inline-block relative right-80 my-8">
                 {% include 'components/add_quantity.html' %}
             </div>
-            <div class="py-3">
+            <div class="py-3" id="add-button">
                 {% include 'components/button.html' with btn='btn-primary w-96 mx-14' text='افزودن به سبد خرید' %}
             </div>
         </form>

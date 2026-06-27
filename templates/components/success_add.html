@@ -1,10 +1,13 @@
 {% load static %}
-<div>
-    <div class="bg-primary w-64 relative right-32 mt-16 py-6 rounded-sm" x-data="{show: true}" x-show="show">
-        <p class="text-white text-center">
-            محصول با موفقیت به سبد خرید شما اضافه شد
-        </p>
-        <button class="bg-[#ffeded] px-4 py-1 relative right-25 rounded-sm mt-8 cursor-pointer"
-            @click="show = false">Ok</button>
-    </div>
+
+<div id="modal" class="text-center">
+    <a href="{% url 'products' %}">بازگشت به صفحه اصلی</a>
+</div>
+<div id="cart-badge" hx-swap-oob="outerHTML">
+    {% if cart_count %}
+    <span
+        class="rounded-full w-6 h-6 text-center text-white text-white align-text-top bg-primary absolute top-8 left-12 p-1">
+        {{cart_count}}
+    </span>
+    {% endif %}
 </div>

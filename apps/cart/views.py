@@ -8,7 +8,7 @@ def cart_function(request: HttpRequest):
     if request.method == "POST":
         cart = Cart(request)
         cart.add_item()
-        return render(request, "components/success_add.html")
+    return render(request, "components/success_add.html")
 
 
 def add_to_cart(request):

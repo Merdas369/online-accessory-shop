@@ -1,0 +1,8 @@
+<div id="cart-badge" hx-swap-oob="outerHTML">
+    {% if cart_count %}
+    <span
+        class="rounded-full w-6 h-6 text-center text-white text-white align-text-top bg-primary absolute top-8 left-12 p-1">
+        {{cart_count}}
+    </span>
+    {% endif %}
+</div>

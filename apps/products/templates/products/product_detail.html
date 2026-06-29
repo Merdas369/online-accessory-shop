@@ -25,7 +25,7 @@
             {{product.variants.first.price}}<span class="px-2">هزار تومان</span>
 
         </div>
-        <form method="post" hx-post="{% url 'cart' %}" hx-target="#add-button">
+        <form method="post" hx-post="{% url 'add_to_cart' %}" hx-target="#add-button">
             <input type="hidden" name="variant_id" value="{{product.variants.first.id}}">
             <input type="hidden" name="variant" value="{{product.variants.first.variant}}">
             <input type="hidden" name="price" value="{{product.variants.first.price}}">

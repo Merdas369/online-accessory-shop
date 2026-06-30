@@ -28,3 +28,12 @@ class Order(TimeStampModel):
     vat = models.PositiveIntegerField()
     shipping_cost = models.PositiveIntegerField()
     total = models.PositiveIntegerField()
+
+
+class OrderItem(models.Model):
+    product_title = models.CharField(max_length=255)
+    variant_material = models.CharField(max_length=255)
+    sku = models.CharField(max_length=255)
+    unit_price = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    line_total = models.PositiveIntegerField()
